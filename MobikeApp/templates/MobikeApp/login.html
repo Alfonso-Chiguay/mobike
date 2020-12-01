@@ -1,0 +1,71 @@
+{% extends 'MobikeApp/base/base.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- content begin -->
+        <div id="content" class="no-bottom no-top">
+
+            
+
+            <!-- section begin -->
+<section id="section-contact" class="dark" data-stellar-background-ratio=".2">
+    <div class="container">
+        <div class="row cont-iniciar">
+            <div class="col-md-12 text-center">
+                <h1 class="" data-animation="fadeInUp">Iniciar <span class="id-color">sesión</span>
+                <span class="small-border animated" data-animation="fadeInUp"></span>
+                </h1>
+
+            </div>
+
+            <div  class="col-md-12 " data-animation="fadeInUp" data-delay="200" data-speed="5">
+                <form action="" method="POST" class="form text-center">
+                    {% csrf_token %}
+            
+                    <style>
+                        #id_usuario,#id_password{
+                            background-color: black;
+                            color: gray;
+                        }
+                    </style>
+                    <p><input id="id_usuario" type="text" name="usuario" class="form-control" placeholder="Nombre de usuario" required></p>
+                    <p><input id="id_password" type="password" name="password" class="form-control" placeholder="Contraseña"></p>
+
+                    <br>
+                    <input type="submit" class="btn btn-warning" value="Iniciar sesion">
+            
+                </form>
+                   <!--<div class="">
+                        <div id='name_error' class='error'>Debe ingresar su nombre de usuario</div>
+                        <div>
+                            <input type='text' name='name' id='name' class="form-control" placeholder="Nombre de usuario">
+                        </div>
+                    </div>
+                    <div class="">
+                        <div id='email_error' class='error'>Debe ingresar su contraseña </div>
+                        <div>
+                            <input type='text' name='email' id='email' class="form-control" placeholder="Contraseña">
+                        </div>
+                    </div>
+                    
+                    <div id='mail_success' class='success'>Your message has been sent successfully.</div>
+                    <div id='mail_fail' class='error'>Sorry, error occured this time sending your message.</div>
+                    -->
+                   
+
+            </div>
+
+            
+        </div>
+    </div>
+</section>
+<!-- section close -->
+
+            
+        </div>
+    </div>
+
+{% endblock %}  
+
+
+

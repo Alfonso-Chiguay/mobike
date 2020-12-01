@@ -1,0 +1,64 @@
+{% extends 'MobikeApp/base/base.html' %}
+{% load static %}
+{%block nav%}
+<nav>
+    <ul id="mainmenu">                              
+        <li><a href="{% url 'Login' %}">Cerrar sesion</a></li>
+    </ul>
+</nav>
+{%endblock%}
+{% block content %}
+
+<!-- section begin -->
+<section id="section-about">
+    <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h1 class="" data-animation="fadeInUp">Sistema de administracion Mobike
+                        <span class="small-border animated" data-animation="fadeInUp"></span>
+                    </h1>
+                    
+                    <span class="id-color h3"> Elija una opcion</span>                 
+                </div>
+            </div>
+            
+            <!-- featured box begin -->
+            <div class="col-lg-12 ejemplo">
+
+                <div class="feature-box-small-icon box-fx center col-lg-4" data-animation="fadeInUp" data-delay="0">
+                    <div class="inner">
+                        <div class="front">
+                            <i class="icon-profile-male"></i>
+                            <h3>Gestionar Usuarios</h3>
+                            <span></span>
+                        </div>
+                        <div class="info">
+                            Realiza acciones de gestion y administracion sobre los usuarios del sistema
+                            <br>
+                            <a href="{% url 'GestionarUsuarios' %}" class="btn btn-border">Ingresar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- featured box close -->
+                 
+            <div class="feature-box-small-icon box-fx center col-lg-4" data-animation="fadeInUp" data-delay="200">
+                <div class="inner">
+                    <div class="front">
+                        <i class="icon-linegraph"></i>
+                        <h3>Reportes</h3>
+                        <span></span>
+                    </div>
+                    <div class="info">
+                        Visualiza y descarga reportes estadisticos de tráfico y de transacciones
+                        <br>
+                        <a href="{% url 'Admin-Reportes' %}" class="btn btn-border">Ingresar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+               
+    </div>
+</section>
+<!-- section close -->
+{% endblock %}

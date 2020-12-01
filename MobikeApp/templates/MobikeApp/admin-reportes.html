@@ -1,0 +1,37 @@
+{% extends 'MobikeApp/base/base.html' %}
+{% load static %}
+{%block nav%}
+<nav>
+    <ul id="mainmenu">    
+        <li><a href="{% url 'Admin-mobike' %}">Atras</a></li>                            
+        <li><a href="{% url 'Login' %}">Cerrar sesion</a></li>
+    </ul>
+</nav>
+{%endblock%}
+
+{% block content %}
+<!-- section begin -->
+<section id="section-about" class="report">
+    <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h1 class="animated h3" data-animation="fadeInUp">Reportes estadisticos
+                        <span class="small-border animated" data-animation="fadeInUp"></span>
+                    </h1>                           
+                </div>
+            </div>
+
+
+
+            <canvas class="canvas" id="myChart" width="700" height="300"></canvas>
+
+            <div class="cont-canvas">
+                <canvas class="canvas" id="myChart2" width="600" height="250"></canvas>
+                <canvas class="canvas" id="myChart3" width="600" height="250"></canvas>
+            </div>
+            
+    </div>
+</section>
+<!-- section close -->
+{% endblock %}

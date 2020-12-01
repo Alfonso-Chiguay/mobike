@@ -1,0 +1,46 @@
+{% extends 'MobikeApp/base/base.html' %}
+{% load static %}
+{%block nav%}
+<nav>
+    <ul id="mainmenu">    
+        <li><a href="{% url 'Admin-mobike' %}">Atras</a></li>                            
+        <li><a href="{% url 'Login' %}">Cerrar sesion</a></li>
+    </ul>
+</nav>
+{%endblock%}
+
+{% block content %}
+
+<!-- section begin -->
+<section id="section-about">
+    <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h1 class="animated h3" data-animation="fadeInUp">Gestion de usuarios Mobike
+                        <span class="small-border animated" data-animation="fadeInUp"></span>
+                    </h1>                           
+                </div>
+            </div>
+
+
+            <form action="" method="POST" class="form-crear">
+
+                {% csrf_token %}
+
+                <h1>Nuevo Usuario</h1>
+                <hr>
+
+                {{ form }}
+
+                <button type="submit" class="boton-mk">Crear</button>
+            </form>
+
+
+
+            
+    </div>
+</section>
+<!-- section close -->
+
+{% endblock %}

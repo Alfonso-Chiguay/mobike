@@ -1,0 +1,101 @@
+{% extends 'MobikeApp/base/base.html' %}
+{% load static %}
+{% block content %}
+
+        <!-- content begin -->
+        <div id="content" class="no-bottom no-top">
+
+            
+
+            <!-- section begin -->
+            <section id="section-contact" class="dark" data-stellar-background-ratio=".2">
+                <div class="container">
+                    <div class="row cont-iniciar">
+                        <div class="col-md-12 text-center">
+                            <h1 class="" data-animation="fadeInUp">Registro de<span class="id-color"> usuarios</span>
+                        	<span class="small-border animated" data-animation="fadeInUp"></span>
+                            </h1>
+                        </div>
+
+                        <div class="col-md-12" data-animation="fadeInUp" data-delay="200" data-speed="5">
+
+                            <form class="form-login" name="contactForm" id='contact_form' method="post" action='email.php'>
+                                <div class="">
+                                    <div id='name_error' class='error'>Debe ingresar un nombre</div>
+                                    <div>
+                                        <input type='text' name='name' id='name' class="form-control" placeholder="Nombres">
+                                    </div>
+                                </div>
+
+                                <div class="">
+                                    <div id='apellido_error' class='error'>Debe ingresar su apellido</div>
+                                    <div>
+                                        <input type='text' name='apellido' id='apellido' class="form-control" placeholder="Apellidos">
+                                    </div>
+                                </div>
+
+                                <div class="">
+                                    <div id='comuna_error' class='error'>Debe ingresar una comuna</div>
+                                    <div class="comunas">
+                                        <select name="" id="">
+                                            <option selected value="">Comuna</option>
+                                            <option value="">La Reina</option>
+                                            <option value="">Ñuñoa</option>
+                                            <option value="">Providencia</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="">
+                                    <div id='username_error' class='error'>Debe ingresar su nombre de usuario</div>
+                                    <div>
+                                        <input type='text' name='username' id='username' class="form-control" placeholder="Nombre de usuario">
+                                    </div>
+                                </div>
+                                <style>
+                                    #passw,#passw2{
+                                        background-color: black;
+                                        color: gray;
+                                        alpha: 50%;
+                                        
+                                    }
+                                </style>
+                                <div class="">
+                                    <div id='passw_error' class='error'>Debe ingresar su contraseña </div>
+                                    <div>
+                                        <input type='password' name='passw' id='passw' class="form-control" placeholder="Contraseña">
+                                    </div>
+                                </div><br>
+
+                                <div class="">
+                                    <div id='passw_error' class='error'>Debe ingresar su contraseña </div>
+                                    <div>
+                                        <input type='password' name='passw2' id='passw2' class="form-control" placeholder="Confirme Contraseña">
+                                    </div>
+                                </div><br>
+
+                                           
+                                <div id='mail_success' class='success'>Your message has been sent successfully.</div>
+                                <div id='mail_fail' class='error'>Sorry, error occured this time sending your message.</div>
+                                
+                                <div class="text-center">
+                                    <p id='submit'>
+                                        <input type='submit' id='send_message' value='Registrarse' class="btn btn-border">
+                                    </p>
+                                </div>
+                            </form>
+
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </section>
+            <!-- section close -->
+
+            
+        </div>
+    </div>
+
+
+{% endblock %}  

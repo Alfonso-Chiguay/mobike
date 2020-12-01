@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mobike</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive Minimal Bootstrap Theme">
+    <meta name="keywords" content="onepage,responsive,minimal,bootstrap,theme">
+    <meta name="author" content="">
+
+   
+    {% load static %}
+    <!-- CSS Files
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/bootstrap.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/jpreloader.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/animate.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/flexslider.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/plugin.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/prettyPhoto.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/owl.carousel.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/owl.theme.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/owl.transitions.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/style.css' %}" type="text/css">
+    
+    <!-- custom style css -->
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/custom-style.css' %}" type="text/css">
+
+    <!-- color scheme -->
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/color.css' %}" type="text/css">
+
+    <!-- revolution slider -->
+    <link rel="stylesheet" href="{% static 'MobikeApp/rs-plugin/css/settings.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/css/rev-settings.css' %}" type="text/css">
+
+    <!-- load fonts -->
+    <link rel="stylesheet" href="{% static 'MobikeApp/fonts/font-awesome/css/font-awesome.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/fonts/elegant_font/HTML_CSS/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'MobikeApp/fonts/et-line-font/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+    <!-- chart.js styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css">
+</head>
+
+<body id="homepage">
+
+    <!-- This section is for Splash Screen -->
+    <div id="jSplash">
+        <section class="selected">
+            Cargando
+        </section>
+        <section>
+            Obteniendo informacion
+        </section>
+        <section>
+            Gracias por preferirnos
+        </section>
+    </div>
+    <!-- End of Splash Screen -->
+
+
+    <div id="wrapper">
+        <div class="page-overlay">
+        </div>
+
+
+        <!-- header begin -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- logo begin -->
+                        <h1 id="logo">
+                            <a href="index.html">
+                                <img class="logo-1 logo-mb" src="{% static 'MobikeApp/images/logo-MO.png' %}" alt="">
+                                <img class="logo-2" src="{% static 'MobikeApp/images/logo-MO2.png' %}" alt="">
+                            </a>
+                        </h1>
+                        <!-- logo close -->
+
+                        <!-- small button begin -->
+                        <span id="menu-btn"></span>
+                        <!-- small button close -->
+                    {% block nav%}
+                        <!-- mainmenu begin -->
+                        <nav>
+                            <ul id="mainmenu">                                
+                                <li><a href="{% url 'Login' %}">Iniciar sesión</a></li>
+                                <li><a href="{% url 'Registro' %}">Registro</a></li>
+                            </ul>
+                        </nav>
+                    {% endblock %}
+                    <!-- mainmenu close -->
+                </div>
+            </div>
+        </header>
+        <!-- header close -->
+
+        {% block content %}
+
+        {% endblock %}
+     
+        <!-- Javascript Files
+    ================================================== -->
+    <script src="{% static 'MobikeApp/js/jquery.min.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/jpreLoader.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/jquery.isotope.min.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/jquery.prettyPhoto.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/easing.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/jquery.ui.totop.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/jquery.flexslider-min.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/jquery.scrollto.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/owl.carousel.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/jquery.countTo.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/classie.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/video.resize.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/validation.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'MobikeApp/js/designesia.js' %}"></script>
+    
+    <!-- Chart.js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="{% static 'MobikeApp/js/reportes.js' %}"></script>
+
+    <!-- SLIDER REVOLUTION SCRIPTS  -->
+    <script type="text/javascript" src="{% static 'MobikeApp/rs-plugin/js/jquery.themepunch.plugins.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'MobikeApp/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+
+</body>
+</html>
