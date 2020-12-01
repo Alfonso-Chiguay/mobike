@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from MobikeApp.forms import FormularioLogin, FormularioCrearUsuario
 from django.views.generic.base import TemplateView
+from django.views import View
+from django.contrib import messages
 from .models import UsuarioMobike
 
 #-----------------------------------------------------------------------# 
@@ -58,15 +60,30 @@ def AdminCrearUsuario(request):
     return render(request, "MobikeApp/admin-crear-usuario.html", data)
 
 
-def AdminListarUsuario(request):
-   
-    usuarios = UsuarioMobike.objects.all()
-
-    data = {
-        'usuarios':usuarios
-    }
+class AdminListarUsuario(View):
+    def get(self, request):
+        usuarios = UsuarioMobike.objects.all()
+        data = {
+            'usuarios':usuarios
+        }    
+        return render(request, "MobikeApp/admin-gestionar-usuario.html", data)
     
-    return render(request, "MobikeApp/admin-gestionar-usuario.html", data)
+    def post(self, request):
+        if "edit" in request.POST["accion"]:
+            id = request.POST["accion"].split("-")[1]
+            usuario = UsuarioMobike.objects.get(id=id)
+            usuarios = UsuarioMobike.objects.all()
+            data = {
+                'usuarios':usuarios
+            }    
+            return render(request, "MobikeApp/admin-gestionar-usuario.html", data)
+        elif "del" in request.POST["accion"]:
+            id = request.POST["accion"].split("-")[1]
+            nombre = UsuarioMobike.objects.get(id=id).nombres
+            UsuarioMobike.objects.get(id=id).delete()
+            messages.info(request, f"Usuario {nombre} fue eliminado correctamente")
+            return redirect(to="GestionarUsuarios")
+
 
 
 
