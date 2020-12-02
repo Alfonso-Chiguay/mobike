@@ -12,3 +12,4 @@ class FormularioCrearUsuario(forms.ModelForm):
      class Meta:
          model = UsuarioMobike
          fields = '__all__'
+

@@ -1,7 +1,7 @@
 from django.urls import path
 from MobikeApp import views
 from django.contrib.auth.views import LoginView, login_required,logout_then_login
-from .views import Registro, login, AdminListarUsuario, AdminReportes, AdminCrearUsuario, AdminView,UsuarioView, FuncionarioView, FuncionarioReporte
+from .views import Registro, login, AdminListarUsuario, AdminReportes, AdminCrearUsuario, AdminView,UsuarioView, FuncionarioView, FuncionarioReporte, AdminEditarUsuario
 
 urlpatterns = [
     path('', views.login, name="Login"),
@@ -13,5 +13,6 @@ urlpatterns = [
     path('usuario/', UsuarioView.as_view(),name="Usuario"),
     path('funcionario/', FuncionarioView.as_view(),name="Funcionario"),
     path('funcionario/reportes/', FuncionarioReporte.as_view(),name="FuncionarioReportes"),
+    path('admin-mobike/gestionar-usuario/editar/<int:id_usuario>',AdminEditarUsuario.as_view(),name="EditarUsuario"),
 ]
  

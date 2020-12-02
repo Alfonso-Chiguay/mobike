@@ -64,27 +64,39 @@ class AdminListarUsuario(View):
     def get(self, request):
         usuarios = UsuarioMobike.objects.all()
         data = {
-            'usuarios':usuarios
+            'usuarios':usuarios,
         }    
         return render(request, "MobikeApp/admin-gestionar-usuario.html", data)
     
-    def post(self, request):
+    def post(self, request):        
         if "edit" in request.POST["accion"]:
             id = request.POST["accion"].split("-")[1]
-            usuario = UsuarioMobike.objects.get(id=id)
-            usuarios = UsuarioMobike.objects.all()
-            data = {
-                'usuarios':usuarios
-            }    
-            return render(request, "MobikeApp/admin-gestionar-usuario.html", data)
+            return redirect(to="EditarUsuario",id_usuario=id)         
+            
         elif "del" in request.POST["accion"]:
             id = request.POST["accion"].split("-")[1]
-            nombre = UsuarioMobike.objects.get(id=id).nombres
+            print(request.POST["accion"])
+            nombre = UsuarioMobike.objects.get(id=id).nombres            
             UsuarioMobike.objects.get(id=id).delete()
             messages.info(request, f"Usuario {nombre} fue eliminado correctamente")
             return redirect(to="GestionarUsuarios")
 
 
+class AdminEditarUsuario(View):
+    def get(self, request, id_usuario):
+        user = UsuarioMobike.objects.get(id=id_usuario)
+        context = {"user":user}
+        return render(request, 'MobikeApp/admin-editar-usuario.html', context)
+    def post(self, request, id_usuario):
+        if request.POST["accion"]=="editar":
+            nombre=request.POST.get("nombre")
+            direccion=request.POST.get("direccion")
+            email=request.POST.get("email")
+            UsuarioMobike.objects.filter(id=request.POST.get("id")).update(direccion=direccion,email=email)
+            messages.info(request, f"Usuario {nombre} fue editado correctamente")
+            return redirect(to="GestionarUsuarios") 
+        else:
+            return redirect(to="GestionarUsuarios") 
 
 
 

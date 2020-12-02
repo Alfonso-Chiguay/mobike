@@ -32,8 +32,7 @@
                 <button>Agregar usuario</button>
               </a>              
             </div>
-            <form method="POST">
-                {% csrf_token%}
+          
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">                      
                 <thead>
                     <tr>
@@ -51,6 +50,8 @@
                 <tbody>
 
                   {% for user in usuarios %}
+                  <form method="POST">
+                    {% csrf_token%} 
                   <tr>
                     <td>{{user.id}}</td>
                     <td>{{user.nombres}}</td>
@@ -59,50 +60,26 @@
                     <td>{{user.email}}</td>
                     <td>{{user.direccion}}</td>
                     <td>{{user.created|date:"d/m/Y"}}</td>
-                    <td class="icon-table">
-                        <button type="submit" name="accion" value="edit-{{user.id}}" style="background-color:green; color:white">Editar</button>
-                        <!-- <button type="submit" name="accion" value="del-{{user.id}}"  style="background-color:red; color:white">Eliminar</button> -->
-                        <button type="button"  style="background-color:red; color:white" data-toggle="modal" data-target="#modal">
-                            Eliminar
+                    
+                    <td>
+                        <!-- <button type="submit" name="accion" value="edit-{{user.id}}" style="background-color:green; color:white">Editar</button> -->
+                        <button type="submit" class="btn"  style="background-color:green; color:white" name="accion" value="edit-{{user.id}}">
+                            Editar
                         </button>
 
-
-                        <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="modalLabel">Confirmar acción</h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
-                                </div>
-                                <div class="modal-body">
-                                  ¿Eliminar a {{user.nombres}}?
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                  <button type="submit" name="accion" value="del-{{user.id}}" class="btn btn-primary">Si, eliminar</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-
-
-
-
-
-
-
-
-
+                        <button type="submit" class="btn" style="background-color:red; color:white" name="accion" value="del-{{user.id}}">
+                            Eliminar
+                        </button>
+                        
+                        
                     </td>                           
                   </tr>
+                </form>
                   {% endfor %}
 
                 </tbody>
               </table>
-            </form>
+            
     </div>
 </section>
 <!-- section close -->

@@ -1,0 +1,55 @@
+{% extends 'MobikeApp/base/base.html' %}
+{% load static %}
+{%block nav%}
+<nav>
+    <ul id="mainmenu">    
+        <li><a href="{% url 'Admin-mobike' %}">Atras</a></li>                            
+        <li><a href="{% url 'Login' %}">Cerrar sesion</a></li>
+    </ul>
+</nav>
+{%endblock%}
+
+{% block content %}
+
+<!-- section begin -->
+<section id="section-about">
+    <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h1 class="animated h3" data-animation="fadeInUp">Editar informacion
+                        <span class="small-border animated" data-animation="fadeInUp"></span>
+                    </h1>                           
+                </div>
+            </div>
+    <form method="POST" class="container">
+        {%csrf_token%}
+        <label for="id">ID:</label>
+        <input type="text" name="id" id="id" value="{{user.id}}" class="form-control col-4" readonly> <br>
+        <label for="nombre">NOMBRES:</label>
+        <input type="text" name="nombre" id="nombre" value="{{user.nombres}}" class="form-control" readonly> <br>
+        <label for="apellidos">APELLIDOS:</label>
+        <input type="text" name="apellidos" id="apellidos" value="{{user.apellidos}}" class="form-control" readonly> <br>
+        <label for="edad">EDAD:</label>
+        <input type="text" name="edad" id="edad" value="{{user.edad}}" class="form-control col-4" readonly> <br>
+
+
+
+
+        <label for="email">CORREO: </label>
+        <input type="email" id="email" name="email" value="{{user.email}}" class="form-control"> <br>
+        <label for="direccion">DIRECCION:</label>
+        <input type="text" name="direccion" id="direccion" value="{{user.direccion}}" class="form-control"> <br>
+        <button type="submit" class="btn btn-success" name="accion" value="editar">Cambiar</button>
+        <button type="submit" class="btn btn-success" name="accion" value="volver">Cancelar</button>
+    </form>
+
+           
+
+
+            
+    </div>
+</section>
+<!-- section close -->
+
+{% endblock %}
