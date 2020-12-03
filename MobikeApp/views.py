@@ -21,13 +21,13 @@ def login(request):
             form=miFormulario.cleaned_data
 
             if form.get('usuario') == "admin":
-                return render(request, "MobikeApp/admin.html")
+                return redirect(to="Admin-mobike")
 
             elif form.get('usuario') == "funcionario":
-                return render(request, "Mobikeapp/funcionario.html")
+                return redirect(to="Funcionario")
 
             elif form.get('usuario') == "usuario":
-                return render(request, "Mobikeapp/usuario.html")
+                return redirect(to="Usuario")
             
             else:
                 return render(request, "Mobikeapp/inicioMal.html")
@@ -108,9 +108,17 @@ class AdminReportes(TemplateView):
     template_name = "MobikeApp/admin-reportes.html"
 
 #-----------------------------------------------------------------------# 
-class UsuarioView(TemplateView):
-    template_name = "MobikeApp/usuario.html"
-
+class UsuarioView(View):
+    def get(self, request):
+        return render(request,'MobikeApp/usuario.html',{'estacionamiento':0})
+    def post(self, request):
+        if request.POST["estacionamiento"] == "est1":
+            return render(request,'MobikeApp/usuario.html',{'estacionamiento':1})
+        elif request.POST["estacionamiento"] == "est2":
+            return render(request,'MobikeApp/usuario.html',{'estacionamiento':2})
+        elif request.POST["estacionamiento"] == "est3":
+            return render(request,'MobikeApp/usuario.html',{'estacionamiento':3})
+    
 #-----------------------------------------------------------------------# 
 class FuncionarioView(TemplateView):
     template_name = "MobikeApp/funcionario.html"

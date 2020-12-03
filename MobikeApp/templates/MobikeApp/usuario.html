@@ -21,10 +21,35 @@
                     </h1>                           
                 </div>
             </div>
+            <form method="POST" class="text-center">
+                {%csrf_token%}
+            <p >
+                <button class="btn" type="submit" name="estacionamiento" value="est1">Estacionamiento 1</button>
+                <button class="btn" type="submit" name="estacionamiento" value="est2">Estacionamiento 2</button>
+                <button class="btn" type="submit" name="estacionamiento" value="est3">Estacionamiento 3</button>  
+                <br><br>         
+                {% if estacionamiento == 0 %}
+                <h3>Bicicletas disponibles en la comuna: 16</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26632.629423375096!2d-70.56543715555966!3d-33.44725666353609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce6aa173a115%3A0x14eaa870edb3c922!2sLa%20Reina%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1604339801387!5m2!1ses!2scl" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                
+                {% elif estacionamiento == 1 %}
+                <h3>Bicicletas disponibles: 3</h3>
+                <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1664.8059705710618!2d-70.55209347399398!3d-33.43336014517112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce5e24cb0ab9%3A0x5d18fdc14b66fda7!2sLa%20Reina%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1606952760582!5m2!1ses!2scl" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                
+                {% elif estacionamiento == 2%}
+                <h3>Bicicletas disponibles: 12</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.2704540539535!2d-70.54545959900155!3d-33.44225968068198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce6ed948d6db%3A0x214ab372de5f78ec!2sLa%20Reina%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1606952824157!5m2!1ses!2scl" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                
+                {% elif estacionamiento == 3%}
+                <h3>Bicicletas disponibles: 1</h3> 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.01215009396!2d-70.55780704900138!3d-33.44898998068001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce412f30a7d7%3A0xe734bbc6b6ec61d8!2sLa%20Reina%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1606952869438!5m2!1ses!2scl" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            
+                
+                {% endif %}   
+            </p>         
+            </form>
 
-            <p class="text-center">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26632.629423375096!2d-70.56543715555966!3d-33.44725666353609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662ce6aa173a115%3A0x14eaa870edb3c922!2sLa%20Reina%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1604339801387!5m2!1ses!2scl" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></p>
-            
+
 
            
             
